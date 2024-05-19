@@ -22,7 +22,7 @@ _Inspired by the awesome [AdvancedNewFile extension](https://github.com/SublimeT
 
 ## Features
 
-All necessary folders will be created automatically, and the new file will be open in the editor:
+Creates all the necessary nested folders, and opens the created file in the editor:
 
 ![Creating nested folders](screenshots/screenshot-folders.png)
 
@@ -40,11 +40,11 @@ All necessary folders will be created automatically, and the new file will be op
 
 ## Settings
 
-You can also [redefine the key bindings](https://code.visualstudio.com/docs/getstarted/keybindings):
+You can [redefine the key bindings](https://code.visualstudio.com/docs/getstarted/keybindings):
 
-| Description | Name | Default Win | Default Mac |
+| Description | Name | Default Mac | Default Windows |
 | --- | --- | --- | --- |
-| Create new file | `newFileNow.createNewFile` | Ctrl+Alt+N | Cmd+Option+N |
+| Create new file | `newFileNow.createNewFile` | <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> |
 
 ## Changelog
 
@@ -52,7 +52,7 @@ The changelog can be found on the [Changelog.md](./Changelog.md) file.
 
 ## Motivation
 
-There are plenty of similar extensions but they are either broken, or confusing. I wanted something that’s easy to use, efficient, simple, and has great UX.
+There are plenty of similar extensions (like [this](https://marketplace.visualstudio.com/items?itemName=patbenatar.advanced-new-file) or [this](https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-new-file)) but they are either broken, or confusing. I wanted something that’s easy to use, efficient, simple, and has great UX. Also, they weren’t updated in years and don’t use new Visual Studio Code’s APIs.
 
 ## You may also like
 
