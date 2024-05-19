@@ -2,7 +2,7 @@
 
 Create new files and directories quickly using the command palette.
 
-**[Install from Visual Studio Marketplace]()**
+**[Install from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sapegin.new-file-now)**
 
 _Inspired by the awesome [AdvancedNewFile extension](https://github.com/SublimeText/AdvancedNewFile) for Sublime Text._
 
