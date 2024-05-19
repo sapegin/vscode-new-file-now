@@ -1,0 +1,80 @@
+# New File Now 🆕
+
+Create new files and directories quickly using the command palette.
+
+**[Install from Visual Studio Marketplace]()**
+
+_Inspired by the awesome [AdvancedNewFile extension](https://github.com/SublimeText/AdvancedNewFile) for Sublime Text._
+
+## How it works?
+
+1. Press the hotkey: <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Windows.
+
+![New File Now extension dialog](screenshots/screenshot.png)
+
+2. Type a path to a file or a folder you want to create, relative to the currently open file.
+
+![Creating a file](screenshots/screenshot-file.png)
+
+3. Press <kbd>Enter</kbd>.
+
+![New file opened in the editor](screenshots/screenshot-created.png)
+
+## Features
+
+All necessary folders will be created automatically, and the new file will be open in the editor:
+
+![Creating nested folders](screenshots/screenshot-folders.png)
+
+**To create a folder**, append `/` to the path. For example, `taco/cat/`:
+
+![Creating a new folder](screenshots/screenshot-folder.png)
+
+**To go up the file tree**, start the path with `../`. For example, `../tacocat.txt`:
+
+![Creating a file in a parent folder](screenshots/screenshot-parent.png)
+
+**To create a file or folder in the workspace root**, start the path with `/`. For example, `/tacocat.txt`:
+
+![New File Now extension](screenshots/screenshot-root.png)
+
+## Settings
+
+You can also [redefine the key bindings](https://code.visualstudio.com/docs/getstarted/keybindings):
+
+| Description | Name | Default Win | Default Mac |
+| --- | --- | --- | --- |
+| Create new file | `newFileNow.createNewFile` | Ctrl+Alt+N | Cmd+Option+N |
+
+## Changelog
+
+The changelog can be found on the [Changelog.md](./Changelog.md) file.
+
+## Motivation
+
+There are plenty of similar extensions but they are either broken, or confusing. I wanted something that’s easy to use, efficient, simple, and has great UX.
+
+## You may also like
+
+Check out my other Visual Studio Code extensions:
+
+- [Emoji Console Log](https://marketplace.visualstudio.com/items?itemName=sapegin.emoji-console-log): insert `console.log()` statements with a random emoji
+- [Todo Tomorrow](marketplace.visualstudio.com/items?itemName=sapegin.todo-tomorrow): highlight `TODO`, `HACK`, `FIXME`, etc. comments
+- [Squirrelsong Light Theme](https://marketplace.visualstudio.com/items?itemName=sapegin.Theme-SquirrelsongLight): low contrast non-distracting light theme for web developers
+- [Squirrelsong Dark Theme](https://marketplace.visualstudio.com/items?itemName=sapegin.Theme-SquirrelsongDark): low contrast non-distracting dark theme for web developers
+
+## Sponsoring
+
+This software has been developed with lots of coffee, buy me one more cup to keep it going.
+
+<a href="https://www.buymeacoffee.com/sapegin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-orange.png" alt="Buy Me A Coffee" height="51" width="217"></a>
+
+## Contributing
+
+Bug fixes are welcome, but not new features. Please take a moment to review the [contributing guidelines](Contributing.md).
+
+## Authors and license
+
+[Artem Sapegin](https://sapegin.me), and [contributors](https://github.com/sapegin/vscode-new-file-now/graphs/contributors).
+
+MIT License, see the included [License.md](License.md) file.
