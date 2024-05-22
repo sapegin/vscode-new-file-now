@@ -50,9 +50,19 @@ You can [redefine the key bindings](https://code.visualstudio.com/docs/getstarte
 
 The changelog can be found on the [Changelog.md](./Changelog.md) file.
 
-## Motivation
+## How is it different from other extensions?
 
 There are plenty of similar extensions (like [this](https://marketplace.visualstudio.com/items?itemName=patbenatar.advanced-new-file) or [this](https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-new-file)) but they are either broken, or confusing. I wanted something that’s easy to use, efficient, simple, and has great UX. Also, they weren’t updated in years and don’t use new Visual Studio Code’s APIs.
+
+## How is it different from New Text File and New File… commands?
+
+Visual Studio Code has several options to create new files:
+
+* File → New Text File (Cmd+N): creates an anonymous file, to save it you’d need to use the system file dialog and create all the folders manually.
+* File → New File (Cmd+Ctrl+Alt+N): shows a similar to the New File Now quick picker dialog, but it has a confusing UX because it’s unclear where the new file is going to be created, and it opens a system file dialog on the next step, which is even more confusing…
+* `explorer.newFile` (no key binding by default): creates a new file in the current folder, supports nesting and creating folders. This is close but the UX is still not as good for my taste.
+
+All these methods are confusing and unproductive, and don’t give the user enough clarity on what’s going to happen. Most don’t create folders, and don’t respect the folder of the currently open file. The New File Now extension doesn’t have these issues.
 
 ## You may also like
 
