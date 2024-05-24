@@ -79,6 +79,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "mkdirp": "^3.0.1"
   },
   "lint-staged": {

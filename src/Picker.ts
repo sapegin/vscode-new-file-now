@@ -6,6 +6,7 @@ import {
   ThemeIcon,
 } from 'vscode';
 import { mkdirp } from 'mkdirp';
+import escapeRegExp from 'lodash/escapeRegExp';
 import { dirname, join, sep } from 'path';
 import { existsSync } from 'fs';
 import { writeFile } from 'fs/promises';
@@ -153,7 +154,7 @@ export default class Picker {
   /** Path of the entered file relative to the workspace root */
   private getRelativePath() {
     return join(this.getRelativeBase(), this.value).replace(
-      new RegExp(`^${sep}`),
+      new RegExp(`^${escapeRegExp(sep)}`),
       '',
     );
   }
