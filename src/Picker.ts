@@ -32,9 +32,7 @@ export default class Picker {
     this.quickPick = window.createQuickPick<QuickPickItem>();
     this.quickPick.onDidHide(() => this.quickPick.dispose());
     this.quickPick.onDidAccept(() => this.createNew());
-    this.quickPick.onDidChangeValue((value) => {
-      this.handleInputValueChange(value);
-    });
+    this.quickPick.onDidChangeValue(this.handleInputValueChange, this);
   }
 
   public show() {
