@@ -54,6 +54,7 @@ export default class Picker {
     try {
       if (this.isDirectory()) {
         // User types a folder name: foo/bar/
+        logMessage('Creating a folder:', fullPath);
 
         // Create a folder with all subfolders
         await mkdirp(fullPath);
@@ -72,6 +73,8 @@ export default class Picker {
           return;
         }
 
+        logMessage('Creating a file:', fullPath);
+
         // Create a folder if needed
         await mkdirp(dirname(fullPath));
 
@@ -83,7 +86,7 @@ export default class Picker {
       }
     } catch (err) {
       if (err instanceof Error) {
-        logMessage('Can’t create a file', err.message);
+        logMessage('Can’t create a file:', err.message);
         window.showErrorMessage('Can’t create a file');
       }
     }
@@ -99,8 +102,7 @@ export default class Picker {
           alwaysShow: true,
           iconPath: ICON_NONE,
           label: join(this.relativeBase, '…'),
-          detail:
-            'Type a path to a file or a folder (append `/` to create a folder)',
+          detail: `Type a path to a file or a folder (append \`${sep}\` to create a folder)`,
         },
       ];
       return;
@@ -152,6 +154,9 @@ export default class Picker {
 
   /** Path of the entered file relative to the workspace root */
   private getRelativePath() {
-    return join(this.getRelativeBase(), this.value).replace(/^\//, '');
+    return join(this.getRelativeBase(), this.value).replace(
+      new RegExp(`^${sep}`),
+      '',
+    );
   }
 }

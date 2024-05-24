@@ -8,13 +8,13 @@ function getPaths() {
     // Document is open, best case scenario
     const { uri } = window.activeTextEditor.document;
     return {
-      workspaceRoot: workspace.getWorkspaceFolder(uri)?.uri.path,
+      workspaceRoot: workspace.getWorkspaceFolder(uri)?.uri.fsPath,
       relativeBase: dirname(workspace.asRelativePath(uri)),
     };
   } else {
     // No document open, fallback to the root of the first open workspace
     return {
-      workspaceRoot: workspace.workspaceFolders?.[0].uri.path,
+      workspaceRoot: workspace.workspaceFolders?.[0].uri.fsPath,
       relativeBase: '',
     };
   }

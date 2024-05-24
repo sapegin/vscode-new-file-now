@@ -26,15 +26,15 @@ Creates all the necessary nested folders, and opens the created file in the edit
 
 ![Creating nested folders](screenshots/screenshot-folders.png)
 
-**To create a folder**, append `/` to the path. For example, `taco/cat/`:
+**To create a folder**, append `/` on a Mac or `\` on Windows to the path. For example, `taco/cat/`:
 
 ![Creating a new folder](screenshots/screenshot-folder.png)
 
-**To go up the file tree**, start the path with `../`. For example, `../tacocat.txt`:
+**To go up the file tree**, start the path with `../` on a Mac or `..\` on Windows. For example, `../tacocat.txt`:
 
 ![Creating a file in a parent folder](screenshots/screenshot-parent.png)
 
-**To create a file or folder in the workspace root**, start the path with `/`. For example, `/tacocat.txt`:
+**To create a file or folder in the workspace root**, start the path with `/` on a Mac or `\` on Windows. For example, `/tacocat.txt`:
 
 ![New File Now extension](screenshots/screenshot-root.png)
 
@@ -62,7 +62,7 @@ Visual Studio Code has several options to create new files:
 * File → New File (Cmd+Ctrl+Alt+N): shows a similar to the New File Now quick picker dialog, but it has a confusing UX because it’s unclear where the new file is going to be created, and it opens a system file dialog on the next step, which is even more confusing…
 * `explorer.newFile` (no key binding by default): creates a new file in the current folder, supports nesting and creating folders. This is close but the UX is still not as good for my taste.
 
-All these methods are confusing and unproductive, and don’t give the user enough clarity on what’s going to happen. Most don’t create folders, and don’t respect the folder of the currently open file. The New File Now extension doesn’t have these issues.
+All these methods are confusing and unproductive, and don’t give the user enough clarity on what’s going to happen. Most don’t create folders, don’t respect the folder of the currently open file, or dot’t let you go up. The New File Now extension doesn’t have these issues.
 
 ## You may also like
 
