@@ -58,9 +58,9 @@ There are plenty of similar extensions (like [this](https://marketplace.visualst
 
 Visual Studio Code has several options to create new files:
 
-* File → New Text File (Cmd+N): creates an anonymous file, to save it you’d need to use the system file dialog and create all the folders manually.
-* File → New File (Cmd+Ctrl+Alt+N): shows a similar to the New File Now quick picker dialog, but it has a confusing UX because it’s unclear where the new file is going to be created, and it opens a system file dialog on the next step, which is even more confusing…
-* `explorer.newFile` (no key binding by default): creates a new file in the current folder, supports nesting and creating folders. This is close but the UX is still not as good for my taste.
+- File → New Text File (Cmd+N): creates an anonymous file, to save it you’d need to use the system file dialog and create all the folders manually.
+- File → New File (Cmd+Ctrl+Alt+N): shows a similar to the New File Now quick picker dialog, but it has a confusing UX because it’s unclear where the new file is going to be created, and it opens a system file dialog on the next step, which is even more confusing…
+- `explorer.newFile` (no key binding by default): creates a new file in the current folder, supports nesting and creating folders. This is close but the UX is still not as good for my taste.
 
 All these methods are confusing and unproductive, and don’t give the user enough clarity on what’s going to happen. Most don’t create folders, don’t respect the folder of the currently open file, or dot’t let you go up. The New File Now extension doesn’t have these issues.
 
@@ -68,7 +68,10 @@ All these methods are confusing and unproductive, and don’t give the user enou
 
 Check out my other Visual Studio Code extensions:
 
-- [Emoji Console Log](https://marketplace.visualstudio.com/items?itemName=sapegin.emoji-console-log): insert `console.log()` statements with a random emoji
+- [Just Blame](https://marketplace.visualstudio.com/items?itemName=sapegin.just-blame): Git Blame annotations, inspired by JetBrains editors
+- [Emoji Console Log](https://marketplace.visualstudio.com/items?itemName=sapegin.emoji-console-log): insert `console.command palette
+- [Mini Markdown](https://marketplace.visualstudio.com/items?itemName=sapegin.mini-markdown): minimalist kit for comfortable Markdown writing
+- [Notebox](https://marketplace.visualstudio.com/items?itemName=sapegin.notebox): take quick notes in the bottom panel
 - [Todo Tomorrow](https://marketplace.visualstudio.com/items?itemName=sapegin.todo-tomorrow): highlight `TODO`, `HACK`, `FIXME`, etc. comments
 - [Squirrelsong Light Theme](https://marketplace.visualstudio.com/items?itemName=sapegin.Theme-SquirrelsongLight): low contrast non-distracting light theme for web developers
 - [Squirrelsong Dark Theme](https://marketplace.visualstudio.com/items?itemName=sapegin.Theme-SquirrelsongDark): low contrast non-distracting dark theme for web developers
