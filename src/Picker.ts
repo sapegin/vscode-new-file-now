@@ -50,47 +50,74 @@ export default class Picker {
     const relativePath = this.getRelativePath();
     const fullPath = this.getAbsolutePath();
 
-    try {
-      if (this.isDirectory()) {
-        // User types a folder name: foo/bar/
-        logMessage('Creating a folder:', fullPath);
+    if (this.isDirectory()) {
+      // User types a folder name: foo/bar/
+      logMessage('Creating a folder:', fullPath);
 
-        // Create a folder with all subfolders
-        await mkdirp(fullPath);
-
-        // There seem to be no API to reveal a folder in Explorer,
-        // so show a notification instead
-        window.showInformationMessage(`Folder created: ${relativePath}`);
-      } else {
-        // User types a file name: foo/bar.ext
-
-        // Check if file already exists
-        if (existsSync(fullPath)) {
-          // Open the file and show an info message
-          await window.showTextDocument(Uri.file(fullPath));
-          window.showInformationMessage(`File already exists: ${relativePath}`);
-          return;
-        }
-
-        logMessage('Creating a file:', fullPath);
-
-        // Create a folder if needed
-        await mkdirp(dirname(fullPath));
-
-        // Create an empty file
-        await writeFile(fullPath, '');
-
-        // Open the new file
-        await window.showTextDocument(Uri.file(fullPath));
+      // Create a folder with all subfolders
+      const created = await this.ensureFolder(fullPath);
+      if (created === false) {
+        return;
       }
+
+      // There seem to be no API to reveal a folder in Explorer,
+      // so show a notification instead
+      window.showInformationMessage(`Folder created: ${relativePath}`);
+    } else {
+      // User types a file name: foo/bar.ext
+
+      // Check if file already exists
+      if (existsSync(fullPath)) {
+        // Open the file and show an info message
+        await window.showTextDocument(Uri.file(fullPath));
+        window.showInformationMessage(`File already exists: ${relativePath}`);
+        return;
+      }
+
+      logMessage('Creating a file:', fullPath);
+
+      // Create an empty file
+      const created = await this.ensureFile(fullPath);
+      if (created === false) {
+        return;
+      }
+
+      // Open the new file
+      await window.showTextDocument(Uri.file(fullPath));
+    }
+
+    this.quickPick.hide();
+  }
+
+  private async ensureFile(fullPath: string) {
+    try {
+      // Create a folder if needed
+      await mkdirp(dirname(fullPath));
+
+      // Create an empty file
+      await writeFile(fullPath, '');
+
+      return true;
     } catch (err) {
       if (err instanceof Error) {
         logMessage('Can’t create a file:', err.message);
         window.showErrorMessage('Can’t create a file');
       }
     }
+    return false;
+  }
 
-    this.quickPick.hide();
+  private async ensureFolder(directory: string) {
+    try {
+      await mkdirp(directory);
+      return true;
+    } catch (err) {
+      if (err instanceof Error) {
+        logMessage('Can’t create a folder:', err.message);
+        window.showErrorMessage('Can’t create a folder');
+      }
+    }
+    return false;
   }
 
   private updateSuggestion() {
