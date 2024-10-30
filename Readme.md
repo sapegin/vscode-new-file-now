@@ -6,6 +6,8 @@ Create new files and directories quickly using the command palette.
 
 _Inspired by the awesome [AdvancedNewFile extension](https://github.com/SublimeText/AdvancedNewFile) for Sublime Text._
 
+[![Washing your code. A book on clean code for frontend developers](https://sapegin.me/images/washing-code-github.jpg)](https://sapegin.me/book/)
+
 ## How it works?
 
 1. Press the hotkey: <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Windows.
