@@ -7,9 +7,9 @@ import {
 } from 'vscode';
 import { mkdirp } from 'mkdirp';
 import escapeRegExp from 'lodash/escapeRegExp';
-import { dirname, join, sep } from 'path';
-import { existsSync } from 'fs';
-import { writeFile } from 'fs/promises';
+import path from 'node:path';
+import { existsSync } from 'node:fs';
+import { writeFile } from 'node:fs/promises';
 import { logMessage } from './debug';
 
 // Octicons icons: https://code.visualstudio.com/api/references/icons-in-labels
@@ -92,15 +92,15 @@ export default class Picker {
   private async ensureFile(fullPath: string) {
     try {
       // Create a folder if needed
-      await mkdirp(dirname(fullPath));
+      await mkdirp(path.dirname(fullPath));
 
       // Create an empty file
       await writeFile(fullPath, '');
 
       return true;
-    } catch (err) {
-      if (err instanceof Error) {
-        logMessage('Can’t create a file:', err.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        logMessage('Can’t create a file:', error.message);
         window.showErrorMessage('Can’t create a file');
       }
     }
@@ -111,9 +111,9 @@ export default class Picker {
     try {
       await mkdirp(directory);
       return true;
-    } catch (err) {
-      if (err instanceof Error) {
-        logMessage('Can’t create a folder:', err.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        logMessage('Can’t create a folder:', error.message);
         window.showErrorMessage('Can’t create a folder');
       }
     }
@@ -127,8 +127,8 @@ export default class Picker {
         {
           alwaysShow: true,
           iconPath: ICON_NONE,
-          label: join(this.relativeBase, '…'),
-          detail: `Type a path to a file or a folder (append \`${sep}\` to create a folder)`,
+          label: path.join(this.relativeBase, '…'),
+          detail: `Type a path to a file or a folder (append \`${path.sep}\` to create a folder)`,
         },
       ];
       return;
@@ -160,12 +160,12 @@ export default class Picker {
 
   /** Entered path is a directory? */
   private isDirectory() {
-    return this.value.endsWith(sep);
+    return this.value.endsWith(path.sep);
   }
 
   /** Entered path is an absolute path (meaning it starts with workspace root)? */
   private isRoot() {
-    return this.value.startsWith(sep);
+    return this.value.startsWith(path.sep);
   }
 
   /** Base base that takes into account whether entered path is absolute or not */
@@ -175,14 +175,13 @@ export default class Picker {
 
   /** Absolute path of the selected file */
   private getAbsolutePath() {
-    return join(this.workspaceRoot, this.getRelativeBase(), this.value);
+    return path.join(this.workspaceRoot, this.getRelativeBase(), this.value);
   }
 
   /** Path of the entered file relative to the workspace root */
   private getRelativePath() {
-    return join(this.getRelativeBase(), this.value).replace(
-      new RegExp(`^${escapeRegExp(sep)}`),
-      '',
-    );
+    return path
+      .join(this.getRelativeBase(), this.value)
+      .replace(new RegExp(`^${escapeRegExp(path.sep)}`), '');
   }
 }

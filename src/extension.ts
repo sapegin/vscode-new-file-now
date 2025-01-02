@@ -1,5 +1,5 @@
 import { commands, window, workspace, type ExtensionContext } from 'vscode';
-import { dirname } from 'path';
+import path from 'node:path';
 import Picker from './Picker';
 import { logMessage } from './debug';
 
@@ -9,7 +9,7 @@ function getPaths() {
     const { uri } = window.activeTextEditor.document;
     return {
       workspaceRoot: workspace.getWorkspaceFolder(uri)?.uri.fsPath,
-      relativeBase: dirname(workspace.asRelativePath(uri)),
+      relativeBase: path.dirname(workspace.asRelativePath(uri)),
     };
   } else {
     // No document open, fallback to the root of the first open workspace
