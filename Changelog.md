@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Update readme.
+
 ## 1.0.4
 
 - Remove more unnecessary files form the package.
