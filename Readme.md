@@ -10,7 +10,7 @@ _Inspired by the awesome [AdvancedNewFile extension](https://github.com/SublimeT
 
 ## How it works?
 
-1. Press the hotkey: <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Windows.
+1. Press the hotkey: <kbd>Cmd</kbd>+<kbd>Opt</kbd>+<kbd>N</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> on Windows.
 
 ![New File Now extension dialog](screenshots/screenshot.png)
 
@@ -46,7 +46,7 @@ You can [redefine the key bindings](https://code.visualstudio.com/docs/getstarte
 
 | Description | Name | Default Mac | Default Windows |
 | --- | --- | --- | --- |
-| Create new file | `newFileNow.createNewFile` | <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> |
+| Create new file | `newFileNow.createNewFile` | <kbd>Cmd</kbd>+<kbd>Opt</kbd>+<kbd>N</kbd> | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd> |
 
 ## Changelog
 
