@@ -45,7 +45,7 @@
       {
         "command": "newFileNow.createNewFile",
         "key": "ctrl+alt+n",
-        "mac": "cmd+alt+n"
+        "mac": "cmd+opt+n"
       }
     ]
   },
