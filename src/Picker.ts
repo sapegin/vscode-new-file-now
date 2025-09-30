@@ -1,3 +1,5 @@
+import path from 'node:path';
+import fs from 'node:fs';
 import {
   window,
   type QuickPickItem,
@@ -5,11 +7,7 @@ import {
   Uri,
   ThemeIcon,
 } from 'vscode';
-import { mkdirp } from 'mkdirp';
 import escapeRegExp from 'lodash/escapeRegExp';
-import path from 'node:path';
-import { existsSync } from 'node:fs';
-import { writeFile } from 'node:fs/promises';
 import { logMessage } from './debug';
 
 // Octicons icons: https://code.visualstudio.com/api/references/icons-in-labels
@@ -67,7 +65,7 @@ export default class Picker {
       // User types a file name: foo/bar.ext
 
       // Check if file already exists
-      if (existsSync(fullPath)) {
+      if (fs.existsSync(fullPath)) {
         // Open the file and show an info message
         await window.showTextDocument(Uri.file(fullPath));
         window.showInformationMessage(`File already exists: ${relativePath}`);
@@ -92,10 +90,10 @@ export default class Picker {
   private async ensureFile(fullPath: string) {
     try {
       // Create a folder if needed
-      await mkdirp(path.dirname(fullPath));
+      await fs.promises.mkdir(path.dirname(fullPath), { recursive: true });
 
       // Create an empty file
-      await writeFile(fullPath, '');
+      await fs.promises.writeFile(fullPath, '');
 
       return true;
     } catch (error) {
@@ -109,7 +107,7 @@ export default class Picker {
 
   private async ensureFolder(directory: string) {
     try {
-      await mkdirp(directory);
+      await fs.promises.mkdir(directory, { recursive: true });
       return true;
     } catch (error) {
       if (error instanceof Error) {
@@ -147,7 +145,7 @@ export default class Picker {
   private getDetailText() {
     const isDirectory = this.isDirectory();
 
-    if (existsSync(this.getAbsolutePath())) {
+    if (fs.existsSync(this.getAbsolutePath())) {
       return isDirectory
         ? 'Folder already exists'
         : 'File already exists, press Enter to open';
