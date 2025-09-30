@@ -7,13 +7,19 @@ import {
   Uri,
   ThemeIcon,
 } from 'vscode';
-import escapeRegExp from 'lodash/escapeRegExp';
 import { logMessage } from './debug';
 
 // Octicons icons: https://code.visualstudio.com/api/references/icons-in-labels
 const ICON_NONE = new ThemeIcon('squirrel');
 const ICON_FILE = ThemeIcon.File;
 const ICON_DIRECTORY = ThemeIcon.Folder;
+
+/**
+ * Escapes special characters in a RegExp string.
+ */
+function escapeRegExp(string: string): string {
+  return string.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
+}
 
 export default class Picker {
   /** Root directory of the workspace */
