@@ -1,5 +1,7 @@
 # New File Now 🆕
 
+**[Repository moved](https://github.com/sapegin/raccoon-vscode/tree/main/extensions/new-file-now)**
+
 Create new files and directories quickly using the command palette.
 
 **Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sapegin.new-file-now) or [Open VSX Registry](https://open-vsx.org/extension/sapegin/new-file-now)**
